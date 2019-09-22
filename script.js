@@ -35,31 +35,38 @@ function checkCarField() {
 		inputGroup.parentNode.classList.add('input-invalid');
 	}
 }
+
 function checkStartDate() {
 	let startDate = query('#start-date');
-	// let startDateCheck = startDate.value.trim();
 	if (startDate.value.trim() !== '') {
 		startDate.parentNode.classList.add('input-valid');
 		startDate.parentNode.classList.remove('input-invalid');
 	} else {
 		startDate.parentNode.classList.add('input-invalid');
 		startDate.parentNode.classList.remove('input-valid');
-		let errorMessage = document.createElement('div');
-		errorMessage.innerHTML = `<div class="error-msg" style="color:red">field is required</div>`;
+		let errorMessages = document.createElement('div');
+		errorMessages.innerHTML = `<div class="error-msgs" style="color:red">field is required</div>`;
 		let inputField = query('#start-date-field');
-		inputField.appendChild(errorMessage);
+		inputField.appendChild(errorMessages);
+
+	} clearErrorMsgs();
+	
+}
+function clearErrorMsgs() {
+	for (let msg of errorMessages);
+	{
+		msg.remove();
 	}
-}	
-	//trying to remove error message
-// 		for (let msg of errorMessage.query('.error-msg')) {
-// 		msg.remove();
+}
+
+// 	for (let errorMessage of inputField.query('#star-date-field')) {
+// 		errorMessage.remove();
+// 	}
+// }
+//trying to remove error message
+
 // 	}
 // }
 
-
-// function clearErrorMsgs(inputField) {
-// 	for (let errorMessage of inputField.query('#star-date-field')) {
-// 		errorMessage.remove();
-
 // 	}
-// 
+//
